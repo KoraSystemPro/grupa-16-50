@@ -1,0 +1,17 @@
+body {
+	background-color: lightgrey;
+	border: 2px dashed Violet;
+	
+	color: black;
+}
+
+.naslov {
+	text-align: center;
+	text-decoration: underline;	
+	color: red;
+}
+
+#naslov-senka {
+	text-shadow: 3px 2px cyan;
+	text-decoration: overline;
+}
