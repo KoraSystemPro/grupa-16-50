@@ -6,6 +6,9 @@ Za pitanja, šaljite ih na jedan od sledećih linkova:
   2. U chat na https://github.com/orgs/KoraSystemPro/teams/grupa-16-50 (samo kao ulogovan član grupe)
   3. Meni na e-mail: korasyspro@gmail.com
 
+[01/01/2020]
+Srećna Nova godina! ;)!
+
 [24/12/2019]
 PODSETNIK!!!
 Imamo čas sledeći vikend 28.12. i 29.12.!
