@@ -19,6 +19,7 @@ int main(){
 			.....
 		}
 	}
+	automobil.boja = "zuta"
 	cout << automobil.marka
 	automobil.ubrzaj()
 	
@@ -28,9 +29,9 @@ int main(){
 	sizeof(char) -> 1 Byte
 	*/
 	
-	// char poruka[] = "Pozdrav";
-	//char poruka[8] = {'P', 'o', 'z', 'd', 'r', 'a', 'v', '\0'};
-	//char ime[] = "Luka";
+	// char poruka1[] = "Pozdrav, ovo je string!";
+	// char poruka[8] = {'P', 'o', 'z', 'd', 'r', 'a', 'v', '\0'};
+	// char ime[] = "Luka";
 	// cout << poruka + ime; Ovo je netacno!!!
 	/*
 	strcpy(s1, s2)	Kopira sadrzaj stringa s2 u string s1	--- s1 = s2
@@ -40,12 +41,11 @@ int main(){
 					ako je s1 < s2 i vecu vrednost od 0 ako je s1 > s2	
 	.........
 	*/
-	
 	char str1[10] = "Pozdrav";
 	char str2[10] = "Luka";
 	char str3[20];
 	
-	strcpy(str3, str1);
+	strcpy(str3, str1);	// str3 = str1
 	cout << "strcpy(str3, str1): " << str3 << endl;
 	
 	strcat(str3, " ");
