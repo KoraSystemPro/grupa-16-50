@@ -7,7 +7,7 @@ using namespace std;
 
 int main(){
 	string poruka = "123string456";
-	
+
 	cout << "Prvobitni tekst: " << poruka << endl;
 //	O	v	o		j	e		p	o	r	u	k	a
 //	0	1	2	3	4	5	6	7	8	9	10	11	12
@@ -18,6 +18,7 @@ int main(){
 			unazad[index] = poruka[i];
 			index++;
 	}
+	
 	
 	cout << "U nazad: " << unazad << endl;
 
