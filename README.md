@@ -7,7 +7,8 @@ Za pitanja, šaljite ih na jedan od sledećih linkova:
   3. Meni na e-mail: korasyspro@gmail.com
 
 [15/06/2020]
-Dodat domaći, možete naći u root folderu za 2. godinu, ili na linku: https://github.com/KoraSystemPro/grupa-16-50/blob/master/2.%20godina/Online/Domaci.txt
+Dodat domaći. Možete ga pronaći u folderu 2.godina/Online, ili na linku:
+https://github.com/KoraSystemPro/grupa-16-50/blob/master/2.%20godina/Online/Domaci.txt
 
 [14/03/2020]
 Škola će raditi kako nalaže ministarstvo za sada, pratite naš sajt www.systempro.rs za obaveštenja o održavanju nastave i mogućim promenama.
