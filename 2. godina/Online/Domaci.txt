@@ -50,11 +50,11 @@ ispis:
 n = 7
 m = 4
 * * * *
-* 	  *
-* 	  *
-* 	  *
-* 	  *
-* 	  *
+*     *
+*     *
+*     *
+*     *
+*     *
 * * * *
 
 3. Za uneti ceo broj n ispisati pravougli trougao sačinjen od "*" dimenzija n, prav ugao se nalazi u gornjem levom uglu.
@@ -149,8 +149,8 @@ ispis:
 n = 5
         *
       *   *
-    *		*
-  * 		  *
+    *       *
+  *           *
 * * * * * * * * *
 
 5. Napisati program koji za uneti ceo broj n, ispisuje string u kome su sva slova pomerena za n polja po abecedi. (Cezarova šifra)
