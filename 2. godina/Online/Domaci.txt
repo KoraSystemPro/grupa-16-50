@@ -1,7 +1,7 @@
 Nizovi:
 -------
 1. Napisati program koji za uneti proizvoljan niz celih brojeva dužine 10, ispisuje niz sa indeksima iznad tabele.
-ispis:   
+ispis:
 	0    1    2    3    4    5    6    7    8    9
 |   1|   8|  10|   7|   4| 112|  43| 144|  18|  11|
 
@@ -109,7 +109,7 @@ Stringovi:
 -- Zadatke sa stringovima raditi uz pomoć "string" ili "ctype" biblioteka
 
 1. Napisati program koji za uneto ime i prezime ispisuje poruku: "Dobrodošao, $(ime) $(prezime)!"
-2. Napisati program koji ispisuje družinu unetog stringa.
+2. Napisati program koji ispisuje dužinu unetog stringa.
 3. Za uneti proizvoljan string zameniti svaki karakter na poziciji deljivom sa 7, sa "+", svaki karakter na poziciji deljivom sa 2, sa "-",
    svaki karakter na poziciji deljivom sa 3, sa "$" i svaki karakter na poziciji deljivom sa 9, sa "/".
    Prioritet je sledećem redosledu: 9, 3, 2, 7
