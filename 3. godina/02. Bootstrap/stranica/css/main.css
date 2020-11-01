@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 body{
     padding: 0px;
     margin: 0px;
@@ -97,3 +98,80 @@ body{
 
 
 
+=======
+body{
+    padding: 0px;
+    margin: 0px;
+    background: #144758;
+    
+}
+
+/* Navbar */
+.navbar{
+    background: black;
+}
+
+.nav-link, .navbar-brand{
+    color: black;
+}
+
+.nav-link:hover, .navbar-brand:hover{
+    color: white;
+}
+
+.navbar-collapse{
+    justify-content: flex-end;
+}
+
+.navbar-toggler{
+    background: white;
+}
+
+/* Header/Zaglavlje */
+.header{
+    height: 100vh;
+    position: relative;
+    background-image: url("../img/background/slika14.jpg");
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.description {
+    position: absolute;
+    top: 30%;
+    margin: auto;
+    padding: 2em;
+}
+
+.description h1{
+    color: white;
+}
+
+.description p{
+    color: #ededed;
+    font-size: 15pt;
+    width: 50%;
+    line-height: 1.5;
+}
+
+.description button{
+    border: 1px solid black;
+    background: #144758;
+    color: white;
+}
+
+.description button:hover{
+    background: #303030;
+}
+
+
+
+
+
+
+
+
+
+>>>>>>> c45a00dcb011c4831819664bfd5d3553c9f707e6
