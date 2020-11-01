@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 body{
     padding: 0px;
     margin: 0px;
@@ -93,77 +92,56 @@ body{
 }
 
 
-
-
-
-
-
-=======
-body{
-    padding: 0px;
-    margin: 0px;
-    background: #144758;
-    
-}
-
-/* Navbar */
-.navbar{
-    background: black;
-}
-
-.nav-link, .navbar-brand{
-    color: black;
-}
-
-.nav-link:hover, .navbar-brand:hover{
-    color: white;
-}
-
-.navbar-collapse{
-    justify-content: flex-end;
-}
-
-.navbar-toggler{
-    background: white;
-}
-
-/* Header/Zaglavlje */
-.header{
-    height: 100vh;
+/* Galerija */
+.gallery{
     position: relative;
-    background-image: url("../img/background/slika14.jpg");
-
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    margin-top: 4em;
 }
 
-.description {
-    position: absolute;
-    top: 30%;
+.gallery img{
+    width: 100%;
+    margin: 1em;
+    border-radius: 10%;
+}
+
+.gallery h1{
+    color: white;
+    margin: 1em;
+}
+
+
+/* Linkovi */
+.links{
+    position: relative;
+}
+
+.links h1{
+    color: white;
+    margin: 1em;
+}
+
+.links .card{
+    box-shadow: 0 0 30px hotpink;
+    
+    height: 100%;
+    padding: 2em;
+    background-color: #144758;
+    color: white;
+
+}
+
+.links .card img{
     margin: auto;
+    height: 12em;
+}
+
+.links .card-body{
     padding: 2em;
 }
 
-.description h1{
-    color: white;
-}
-
-.description p{
-    color: #ededed;
-    font-size: 15pt;
-    width: 50%;
-    line-height: 1.5;
-}
-
-.description button{
-    border: 1px solid black;
-    background: #144758;
-    color: white;
-}
-
-.description button:hover{
+.links .card-body a{
     background: #303030;
+    color: white;
 }
 
 
@@ -174,4 +152,18 @@ body{
 
 
 
->>>>>>> c45a00dcb011c4831819664bfd5d3553c9f707e6
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
