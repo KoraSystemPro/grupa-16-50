@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Lična stranica</title>
+        
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="css/main.css">
+    </head>
+
+    <body>
+        <!-- Navigacija -->
+        <nav class="navbar fixed-top navbar-expand-sm bg-dark navbar-dark">
+            <a class="navbar-brand" href="#">
+                Korica
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mojaNavigacija">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="mojaNavigacija">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">O meni</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#gallery">Galerija</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#links">Linkovi</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Kontakt</a>
+                    </li>
+                </ul>
+            </div>
+            
+        </nav>
+        
+        <!-- Zaglavlje -->
+        <header class="page-header header container-fluid">
+            <div class="container">
+                <div class="description">
+                    <h1> 
+                        Dobrodošli na moju stranicu!
+                        <p> 
+                            Ovde možete videti sva dešavanja i sve podatke o meni
+                            i mom radu.    
+                        </p>
+                        <button class="btn btn-lg btn-outline-secondary">Pogledaj više</button>
+                    </h1>
+                </div>
+            </div>
+        </header>  
+        
+        <!-- O meni -->
+        <div class="about" id="about">
+            <div class="container">
+                <h1 class="text-center">O meni</h1>
+                <div class="row about-row">
+                    <div class="col-lg-4">
+                        <img src="img/portret.jpeg">
+                    </div>
+                    <div class="col-lg-8 opis">
+                        <h3>Luka Korica</h3>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent rhoncus porta nisi, nec iaculis velit. Donec lacus ex, fringilla quis dolor non, porta semper nibh. Sed sodales rutrum sem nec feugiat. Nullam volutpat, massa et ornare imperdiet, est magna vulputate dolor, non euismod ante nibh in tellus. Integer pharetra finibus dapibus. Mauris finibus sem vestibulum elementum venenatis. Aliquam ut neque in mauris elementum auctor. Nulla ut justo at diam porta condimentum. Nam elit erat, consectetur ut urna rhoncus, laoreet auctor justo. Vestibulum nec lectus consectetur, malesuada turpis et, suscipit nulla. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Vivamus vulputate, dolor eu auctor ornare, diam orci lobortis lectus, sit amet sollicitudin nulla odio at nisi. Nullam gravida mi urna, sit amet elementum mauris interdum vitae. Mauris interdum risus eget turpis pretium fermentum.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Galerija -->
+        <div class="gallery" id="gallery">
+            <h1 class="text-center">Galerija</h1>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="img/background/slika2.jpg" class="img-fluid">
+                    </div>    
+                    <div class="col-md-4">
+                        <img src="img/background/slika3.jpg" class="img-fluid">
+                    </div>    
+                    <div class="col-md-4">
+                        <img src="img/background/slika4.jpg" class="img-fluid">
+                    </div>   
+                    
+                    <div class="col-lg-4">
+                        <img src="img/background/slika15.jpg" class="img-fluid">
+                    </div>   
+                    <div class="col-lg-4">
+                        <img src="img/background/slika8.jpg" class="img-fluid">
+                    </div> 
+                    <div class="col-lg-4">
+                        <img src="img/background/slika5.jpg" class="img-fluid">
+                    </div> 
+                </div>
+            </div>
+        </div>
+        
+        <!-- Linkovi -->
+        <div class="links" id="links">
+            <div class="container">
+                <h1 class="text-center">Linkovi</h1>
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <img src="img/icons/syspro.png" alt="SystemPro">
+                            <div class="card-body">
+                                <h5 class="card-title">System Pro</h5>
+                                <p class="card-text">Link ka skoli programiranja SystemPro u Beogradu.</p>
+                                <a href="https://www.systempro.rs" class="btn btn-primary">Procitaj vise</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-6">
+                        <div class="card">
+                            <img src="img/icons/github.svg" alt="GitHub">
+                            <div class="card-body">
+                                <h5 class="card-title">GitHub</h5>
+                                <p class="card-text">Link ka GitHub platformi gde se nalaze sve stvari radjenen na casu.</p>
+                                <a href="https://www.github.com/lkora" class="btn btn-primary">Procitaj vise</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>        
+        </div>
+        
+        <!-- Kontakt forma -->
+        <div class="contact-form" id="contact">
+            <div class="container">
+                <form>
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <h1>Stupite u kontakt<br>sa nama!</h1>
+                        </div>
+                        <div class="col-lg-8 right">
+                            <div class="form-group">
+                                <input type="text" class="form-control form-control-lg" placeholder="Ime">
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control form-control-lg" placeholder="E-mail">
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control form-control-lg"></textarea>
+                            </div>
+                                 <input type="button" class="btn btn-primary" value="Posalji">
+                            
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    
+        
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    </body>
+</html>

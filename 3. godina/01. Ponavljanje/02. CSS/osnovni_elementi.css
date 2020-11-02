@@ -1,0 +1,104 @@
+<p id="naslov"> -> #naslov
+<p class="crveni-tekst"> -> .crveni-tekst
+selektor (<tag>, .klase, #id)
+
+<p class="velika-slova">
+<p class="velika-slova" id="uokviren-paragraf">
+
+
+p {                 /*  Pristup svim p paragrafima  */
+    text-decoration: underline;
+}
+
+.velika-slova {     /* Pristup svim elementima klase velika-slova */
+    color: blue;
+    font-size: 16pt;
+    
+}
+
+                    /* Pristup svim elementima koji imaju dodeljen id uokviren-paragraf */
+#uokviren-paragraf{
+    border: 2px dotted red;
+}
+
+
+-----------------------------------------------------------------------
+
+
+selektor {
+    svojstvo-1: vrednost;
+    ....
+    svojstvo-N: vrednost;
+    
+}
+
+
+<ol>
+    <li></li>
+    <li></li>
+    <li></li>
+
+</ol>
+
+<ul>
+    
+    <li></li>
+    <li></li>
+    <li></li>
+
+</ul>
+
+
+<h2>
+<div>
+<p class="moja-klasa">
+</div>
+<h4 id="moj-id">
+
+
+
+    Selektor                    Primer          Objasnjenje
+1.  Ime elementa(tag)           h2              Primenice stil na svim h2 na sajtu
+
+2.  Klasa(class)                .moja-klasa     Primenjuje stil na sve elemente koji pripadaju klasi "moja-klasa"
+
+3.  Identifikator(id)           #moj-id         Primenjuje stil na svim elementima koji 
+                                                imaju dodeljen navedeni atribut 
+                                                id "moj-id"    
+
+4.  Ugnjezdavanja               p h2            Primenjuje stil na sve h2 koji se nalaze u p h2
+                                ul li  
+                                         
+5.  Grupisanje                  p, h1, 
+                                #id, .klasa     Primenjuje stil na sve navedene selektore, odvojene zarezom
+                                
+6.  Kompozicija                 div p.moja-klasa    Primenjuje stil nad svim linijskim 
+                                p p#moj-id          tekstovima koji se nalaze 
+                                                    kao potomci svih paragrafa <p> 
+                                                    sa atributom 
+                                                    class="moja-klasa", koji se nalaze kao potomci
+                                                    svih elemenata <div>
+
+
+-----------------------------------------------------------------------
+
+
+
+
+Nacini za zadavnje pravila za stilizovanje:
+1. Spoljni kaskadni listovi (odvojen CSS od HTML-a)
+    <link rel="stylesheet" type="text/css" href="ovde ide adresa ka css dokuentu">
+        a. Relativne (iz foldera u kome se nalazi HTML)
+        b. Apsolutne (cela adresa dokumenta)
+        c. URL (ako je css dokument na internetu)
+
+2. Element style    <style> </style>
+3. Atribut style    <p style="">
+
+
+
+
+
+
+
+
