@@ -1,0 +1,57 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.kontejner{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+
+.kartica{
+    min-height: 60em;
+    width: 35em;
+    border-radius: 30px;
+    padding: 0 5em;
+    box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2);
+}
+
+.slika{
+    width: 35em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.krug{
+    width: 15em;
+    height: 15em;
+    background: linear-gradient(
+        to right, 
+        rgba(102, 51, 0, 0.75),
+        rgba(43, 199, 172, 0.75)
+    );
+    border-radius: 50%;
+    position: absolute;
+    z-index: 1;
+}
+
+.slika img{
+    width: 18em;
+    z-index: 2;
+}
+
+.info{
+    
+}
+
+
