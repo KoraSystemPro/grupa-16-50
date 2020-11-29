@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    font-family: Inconsolata, Consolas, monospace;
+    font-size: 18pt;    
+}
+body{
+    padding: 10px 0 0 10px; /* gore desno dole levo */
+}
+button{
+    display: block;
+    margin: 15px 0; /* gore/dole desno/levo */
+}
+.red_dugmadi{
+    width: 220px;
+    height: 55px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: space-between;
+
+    
+}
+.dgm_p, .dgm_k{
+    width: 50px;
+    height: 50px;
+    background: #777777;
+    border: 1px solid black;
+    border-radius: 50%;
+
+}
+
+.dgm_p:hover{
+    filter: brightness(130%);
+}
