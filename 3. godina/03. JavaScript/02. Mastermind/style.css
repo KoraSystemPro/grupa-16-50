@@ -13,7 +13,7 @@ button{
 .red_dugmadi{
     width: 220px;
     height: 55px;
-
+    
     display: flex;
     flex-direction: row;
     align-items: stretch;
@@ -32,4 +32,13 @@ button{
 
 .dgm_p:hover{
     filter: brightness(130%);
+}
+
+#sakriven_red{
+    /* visibility: hidden; */
+    display: none;
+}
+
+.sakriven_div{
+    display: none;
 }
