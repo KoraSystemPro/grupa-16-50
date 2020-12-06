@@ -42,3 +42,11 @@ button{
 .sakriven_div{
     display: none;
 }
+
+#dgm_oceni{
+    display: none;
+}
+
+#nova-kombinacija{
+    display: block;
+}

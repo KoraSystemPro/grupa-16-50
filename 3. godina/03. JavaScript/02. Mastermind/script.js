@@ -5,12 +5,16 @@ let prebrojavanje = [0, 0, 0, 0, 0, 0];
                 //   1  2  3  4  5  6
 let crni = 0;
 let beli = 0;
+let br_pokusaja = 0;
+let max_br_pokusaja = 6;
 
 function ispisi(){
     document.getElementById("kombinacija").innerHTML = "Kombinacija: ";
     for(i = 0; i < 4; i++){
         document.getElementById("kombinacija").innerHTML += kombinacija[i];
     }
+    // Ispisuje prostali broj pokusaja, crne i bele pogotke
+    document.getElementById("preostali_pokusaji").innerHTML = "Preostali broj pokusaja: " + (max_br_pokusaja - br_pokusaja);
     document.getElementById("crni").innerHTML = "Crni: " + crni;
     document.getElementById("beli").innerHTML = "Beli: " + beli;
 }
@@ -30,7 +34,7 @@ function promena(k){
     if(pokusaj[k-1] > 6)
         pokusaj[k-1] = 1;
     
-    console.log("Kombinacija: " + kombinacija + "\nPokusaj:" + pokusaj);
+    // console.log("Kombinacija: " + kombinacija + "\nPokusaj:" + pokusaj);
     switch(pokusaj[k-1]){
         case 1: dgm.style.backgroundColor = "#ff7777"; break;
         case 2: dgm.style.backgroundColor = "#ffaa44"; break;
@@ -43,6 +47,7 @@ function promena(k){
 }
 
 function oceni(){
+    br_pokusaja++;
     crni = 0;
     beli = 0;
     niz_crnih = [0, 0, 0, 0];
@@ -71,14 +76,27 @@ function oceni(){
     }
 
     // Dobitni pogodak, prikazuje resenu kombinaciju
-    if(crni == 4)
+    if(crni == 4){
         document.getElementById("sakriven_red").style.display = "flex";
-    
+        document.getElementById("dgm_oceni").style.display = "none";
+        document.getElementById("nova-kombinacija").style.display = "block";
+    }
+        
+    // Iskorisceni svi pokusaji
+    if(br_pokusaja >= max_br_pokusaja){
+        document.getElementById("dgm_oceni").style.display = "none";
+        document.getElementById("nova-kombinacija").style.display = "block";
+    }
 
+    console.log("Kombinacija:\t" + kombinacija + "\nPokusaj:\t\t" + pokusaj + "\nBr pokusaja:\t" + br_pokusaja + "\nPreostali broj pokusaja:\t" + (max_br_pokusaja-br_pokusaja));
     ispisi();
 }
 
 function novaKombinacija(){
+    // Otkrivamo dugme OCENJIVANJE, resetjemo broj pokusaja, sakrivamo dugme NOVA KOMBINACIJA
+    document.getElementById("dgm_oceni").style.display = "block";
+    br_pokusaja = 0;
+    document.getElementById("nova-kombinacija").style.display = "none";
     // Sakrivamo dobitnu kombinaciju
     document.getElementById("sakriven_red").style.display = "none";
     // Resetuje pokusaj na 0 i postavlja sve sivo
