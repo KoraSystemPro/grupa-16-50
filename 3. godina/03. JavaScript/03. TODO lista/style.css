@@ -40,3 +40,30 @@ form button:hover{
     background: salmon;
     color: white;
 }
+
+.todo-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.todo-list{
+    min-width: 30%;
+    list-style-type: none;
+}
+
+ul li{
+    margin: 0.5em;
+    background: white;
+    color: black;
+    font-size: 1.5em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.gotovo{
+    color: darkgray;
+    background: gray;
+    text-decoration: line-through;
+}
