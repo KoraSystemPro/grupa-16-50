@@ -9,6 +9,9 @@ let br_pokusaja = 0;
 let max_br_pokusaja = 6;
 
 function ispisi(){
+    // Ispisuje prethodne pokusaje
+    ucitajPokusaje();
+
     document.getElementById("kombinacija").innerHTML = "Kombinacija: ";
     for(i = 0; i < 4; i++){
         document.getElementById("kombinacija").innerHTML += kombinacija[i];
@@ -19,6 +22,32 @@ function ispisi(){
     document.getElementById("beli").innerHTML = "Beli: " + beli;
 }
 
+function ucitajPokusaje(){
+    for(let i = 0; i < max_br_pokusaja; i++){    
+        let div_red = document.createElement("div");
+        div_red.classList.add("red", "flex-red");
+
+        let div_pokusaj = document.createElement("div");
+        div_pokusaj.classList.add("pokusaj", "flex-red");
+
+        let div_resenje = document.createElement("div");
+        div_resenje.classList.add("resenje", "flex-red");
+
+        for(let i = 0; i < 4; i++){
+            let div_pokusaj_pamcenje = document.createElement("div");
+            div_pokusaj_pamcenje.classList.add("pokusaj-pamcenje");
+            div_pokusaj.appendChild(div_pokusaj_pamcenje);
+
+            let div_resenje_pamcenje = document.createElement("div");
+            div_resenje_pamcenje.classList.add("resenje_pamcenje");
+            div_resenje.appendChild(div_resenje_pamcenje);
+        }
+
+        div_red.appendChild(div_pokusaj);
+        div_red.appendChild(div_resenje);
+        document.getElementById("pokusaji").appendChild(div_red);
+    }
+}
 
 function promena1(){ promena(1); }
 function promena2(){ promena(2); }

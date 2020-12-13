@@ -50,3 +50,27 @@ button{
 #nova-kombinacija{
     display: block;
 }
+
+.red{
+    margin-bottom: 4px;
+}
+
+.flex-red{
+    display: flex;
+    flex-direction: row;
+}
+
+.pokusaj-pamcenje{
+    border: 2px solid gray;
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+}
+
+.resenje-pamcenje{
+    background-color: #777777;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    margin-right: 5px;
+}

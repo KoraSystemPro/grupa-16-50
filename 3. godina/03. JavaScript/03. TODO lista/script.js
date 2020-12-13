@@ -1,7 +1,7 @@
 // Dohvata element na koji se kliknulo (this), uzima njegov parent element i stavlja mu display svojstvo na "none"
 function sakrijiElement(){
-    let element = this.parentElement;
-    element.style.display = "none";
+    let otac = this.parentElement;
+    otac.style.display = "none";
 }
 
 // Kreira novi clan liste kada se pritisne na dugme Dodaj
@@ -12,7 +12,7 @@ function napraviNoviElement(){
     let tekstCvor = document.createTextNode(vrednostTextBoxa);
     noviLi.appendChild(tekstCvor);
 
-    // Proveravamo da li je tekstbox bi prazan
+    // Proveravamo da li je tekstbox prazan
     if(vrednostTextBoxa == ""){
         alert("Morate da unesete neki tekst!");
     }
@@ -40,8 +40,8 @@ function napraviNoviElement(){
 // Dodaje novi element na listu
 document.getElementById("dgm-dodaj").addEventListener("click", napraviNoviElement);
 // "Zavrsava" pritisnuti element
-document.getElementById("todo-lista").addEventListener("click", function(evt){
-    if(evt.target.tagName === "LI"){
-        evt.target.classList.toggle("gotovo");
+document.getElementById("todo-lista").addEventListener("click", function(klik){
+    if(klik.target.tagName === "LI"){
+        klik.target.classList.toggle("gotovo");
     }
 });
