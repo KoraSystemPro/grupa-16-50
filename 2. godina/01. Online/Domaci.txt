@@ -1,0 +1,160 @@
+Nizovi:
+-------
+1. Napisati program koji za uneti proizvoljan niz celih brojeva dužine 10, ispisuje niz sa indeksima iznad tabele.
+ispis:
+	0    1    2    3    4    5    6    7    8    9
+|   1|   8|  10|   7|   4| 112|  43| 144|  18|  11|
+
+2. Napisati program koji za uneti proizvoljan niz celih brojeva dužine 10, proverava da li se uneti ceo broj n, nalazi u nizu,
+i ako se nalazi, ispisati poruku "Postoji." i poziciju elementa u nizu, a ako se ne nalazi, ispisati "Ne postoji.".
+1   8  10   7   4  112  43  144  18  11
+n = 43
+ispis: 
+"Postoji, na poziciji 7"
+
+3. Napisati program koji za proizvoljan niz celih brojeva dužine 10, pronalazi dva najveća elementa u nizu i ispisuje ih.
+1   8  10   7   4  112  43  144  18  11
+ispis: 
+"Najveci elementi: 144 i 112." 
+
+4. Napisati program koji za uneti proizvoljan niz celih brojeva dužine 10, ispisuje niz u nazad.
+1   8  10   7   4  112  43  144  18  11
+ispis: 
+11   18	144	 43	 112  4	 7  10	8  1
+
+5. Napisati program koji za uneti proizvoljan niz celih brojeva dužine 10, ispisuje sumu(zbir) svih elemenata.
+1   8  10   7   4  112  43  144  18  11
+ispis: 
+Zbir = 358
+
+6. Napisati program koji za uneti proizvoljan niz celih brojeva dužine 10, ispisuje prosek svih elemenata.
+1   8  10   7   4  112  43  144  18  11
+ispis:
+Prosek = 35.8
+
+==============================================================================================================
+Dvostruke petlje:
+-----------------
+1. Za unete cele brojeve n, m ispisati pravougaonik sačinjen od "*" dimenzija n*m i povrsinu.
+ispis:
+n = 4
+m = 7
+* * * * * * *
+* * * * * * *
+* * * * * * *
+* * * * * * *
+Površina = 28
+
+2. Za unete cele brojeve n, m ispisati ivice pravougaonika sačinjenog od "*" dimenzija n*m.
+ispis:
+n = 7
+m = 4
+* * * *
+*     *
+*     *
+*     *
+*     *
+*     *
+* * * *
+
+3. Za uneti ceo broj n ispisati pravougli trougao sačinjen od "*" dimenzija n, prav ugao se nalazi u gornjem levom uglu.
+ispis:
+n = 5
+* * * * *
+* * * *
+* * *
+* *
+*
+
+4. Za uneti ceo broj n ispisati pravougli trougao sačinjen od "*" dimenzija n, prav ugao se nalazi u donjem levom uglu.
+ispis:
+n = 5
+*
+* *
+* * *
+* * * *
+* * * * *
+
+5. Za uneti ceo broj n ispisati pravougli trougao sačinjen od "*" dimenzija n, prav ugao se nalazi u donjem desnom uglu.
+ispis:
+n = 5
+        *
+      * *
+    * * *
+  * * * *
+* * * * *
+
+6. Za uneti ceo broj n ispisati pravougli trougao sačinjen od "*" dimenzija n, prav ugao se nalazi u gornjem desnom uglu.
+ispis:
+n = 5
+* * * * *
+  * * * *
+    * * *
+      * *
+        *
+		
+
+7. Za uneti ceo broj n ispisati trugao visine n "*" dimenzija n, vrh trougla se nalazi u gornjem uglu.
+ispis:
+n = 5
+* * * * * * * * *
+  * * * * * * *
+    * * * * *
+      * * *
+        *
+
+`
+==============================================================================================================
+Stringovi:
+-- Zadatke sa stringovima raditi uz pomoć "string" ili "ctype" biblioteka
+
+1. Napisati program koji za uneto ime i prezime ispisuje poruku: "Dobrodošao, $(ime) $(prezime)!"
+2. Napisati program koji ispisuje dužinu unetog stringa.
+3. Za uneti proizvoljan string zameniti svaki karakter na poziciji deljivom sa 7, sa "+", svaki karakter na poziciji deljivom sa 2, sa "-",
+   svaki karakter na poziciji deljivom sa 3, sa "$" i svaki karakter na poziciji deljivom sa 9, sa "/".
+   Prioritet je sledećem redosledu: 9, 3, 2, 7
+4. Napisati program koji briše uneti string i ispisuje prazan string na standardan izlaz kao i njegovu dužinu.
+5. Napisati program kojem se prvo sa ulaza unosi string "lozinka" i nakon toga traži ponovan unos stringa radi provere, ako su stringovi isti ispisati "Tačna lozinka!", ako nisu "Netacna lozinka!".
+6. Napisati program koji menja sva velika slova u mala slova za proizvoljan string.
+
+
+==============================================================================================================
+BONUS:
++++++++
+1. Napisati program koji za uneti proizvoljan niz celih brojeva dužine 10, ispisati broj ponavljanja svih elemenata u nizu.
+1   8  3   7   4  4  3 	3  8  1
+ispis: 
+element 1 : 2
+element 8 : 2
+element 3 : 3
+element 7 : 1
+element 4 : 2
+
+2. Napisati program koji za uneti proizvoljan niz celih brojeva dužine 10, pravi i ispisuje novi niz u kome su izbačeni svi duplikati.
+1   8  3   7   4  4  3 	3  8  1
+ispis: 
+1	8	3	7	4
+
+3. Za uneti ceo broj n ispisati trugao visine n "*" dimenzija n, vrh trougla se nalazi u gornjem uglu.
+ispis:
+n = 5
+        *
+      * * *
+    * * * * *
+  * * * * * * *
+* * * * * * * * *
+
+4. Za uneti ceo broj n ispisati ivice trugla visine n "*" dimenzija n, vrh trougla se nalazi u gornjem uglu.
+ispis:
+n = 5
+        *
+      *   *
+    *       *
+  *           *
+* * * * * * * * *
+
+5. Napisati program koji za uneti ceo broj n, ispisuje string u kome su sva slova pomerena za n polja po abecedi. (Cezarova šifra)
+Primer:
+n = 2
+Originalan string: ABCDEFGHIJKLMNOPQRSTUVWXYZ
+Šifrovan string: CDEFGHIJKLMNOPQRSTUVWXYZAB

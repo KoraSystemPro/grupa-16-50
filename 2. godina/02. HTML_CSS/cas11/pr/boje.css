@@ -1,0 +1,35 @@
+body {
+	background-color: DodgerBlue;
+	
+}
+
+.paragraf {
+	font-family: Verdana;
+	color: Tomato;
+	padding: 20px;
+	border: 2px dashed Gray;
+	/*
+	border-width: 2px;
+	border-style: solid;
+	border-color: Gray;
+	*/
+	
+}
+
+.naslov {
+	/* background-color: DodgerBlue; */
+	/* background-color: rgb(150, 20, 200); */
+	/* background-color: #ffa500;	*/
+	/* hsl(hue 0-360 (0-crvena, 120-zelena, 240-plava), saturation 0%-100%, lightness 0%-100%) */
+	/* background-color: hsl(40, 100%, 75%); */
+	/* background-color: rgba(255, 0, 0, 0.05); 0-1, 0-providno, 1-nije providno */ 
+	/* background-color: hsla(40, 100%, 75%, 0.3); */
+	
+	
+}
+
+#paragraf-2 {
+	text-decoration: underline;
+	font-weight: bold;
+	
+}
