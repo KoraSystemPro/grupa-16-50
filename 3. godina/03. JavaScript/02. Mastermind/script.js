@@ -9,9 +9,6 @@ let br_pokusaja = 0;
 let max_br_pokusaja = 6;
 
 function ispisi(){
-    // Ispisuje prethodne pokusaje
-    ucitajPokusaje();
-
     document.getElementById("kombinacija").innerHTML = "Kombinacija: ";
     for(i = 0; i < 4; i++){
         document.getElementById("kombinacija").innerHTML += kombinacija[i];
@@ -23,6 +20,8 @@ function ispisi(){
 }
 
 function ucitajPokusaje(){
+    let div_tabela = document.getElementById("prethodni-pokusaji");
+
     for(let i = 0; i < max_br_pokusaja; i++){    
         let div_red = document.createElement("div");
         div_red.classList.add("red", "flex-red");
@@ -33,19 +32,44 @@ function ucitajPokusaje(){
         let div_resenje = document.createElement("div");
         div_resenje.classList.add("resenje", "flex-red");
 
-        for(let i = 0; i < 4; i++){
+        for(let j = 0; j < 4; j++){
             let div_pokusaj_pamcenje = document.createElement("div");
             div_pokusaj_pamcenje.classList.add("pokusaj-pamcenje");
+            // Dodeljujemo svakom od polja broj reda i broj kolone kojoj pripada
+            div_pokusaj_pamcenje.id = "pokusaj-pamcenje-" + i + "-" + j;
             div_pokusaj.appendChild(div_pokusaj_pamcenje);
 
             let div_resenje_pamcenje = document.createElement("div");
-            div_resenje_pamcenje.classList.add("resenje_pamcenje");
+            div_resenje_pamcenje.classList.add("resenje-pamcenje");
+            // Dodeljujemo svakom od polja broj reda i broj kolone kojoj pripada
+            div_resenje_pamcenje.id = "resenje-pamcenje-" + i + "-" + j;
             div_resenje.appendChild(div_resenje_pamcenje);
         }
 
         div_red.appendChild(div_pokusaj);
         div_red.appendChild(div_resenje);
-        document.getElementById("pokusaji").appendChild(div_red);
+
+        div_tabela.appendChild(div_red);
+    }
+}
+
+// Ispisuje tabelu pokusaja
+ucitajPokusaje();
+
+function upisiUTabelu(pokusaj, crni, beli, red){
+    for(let kolona = 0; kolona < 4; kolona++){
+        // Selektujemo odgovarjuce polje u koloni redom
+        let polje = document.getElementById("pokusaj-pamcenje-" + red + "-" + kolona);
+        // Menjamo mu boju u odgovarajucu
+        switch(pokusaj[kolona]){
+            case 1: polje.style.backgroundColor = "#ff7777"; break;
+            case 2: polje.style.backgroundColor = "#ffaa44"; break;
+            case 3: polje.style.backgroundColor = "#ffff77"; break;
+            case 4: polje.style.backgroundColor = "#7777ff"; break;
+            case 5: polje.style.backgroundColor = "#77ff77"; break;
+            case 6: polje.style.backgroundColor = "#ff77ff"; break;
+            default: polje.style.backgroundColor = "#777777"; break;
+        }
     }
 }
 
@@ -119,6 +143,8 @@ function oceni(){
 
     console.log("Kombinacija:\t" + kombinacija + "\nPokusaj:\t\t" + pokusaj + "\nBr pokusaja:\t" + br_pokusaja + "\nPreostali broj pokusaja:\t" + (max_br_pokusaja-br_pokusaja));
     ispisi();
+    upisiUTabelu(pokusaj, crni, beli, br_pokusaja-1);
+
 }
 
 function novaKombinacija(){

@@ -58,6 +58,17 @@ button{
 .flex-red{
     display: flex;
     flex-direction: row;
+    align-items: center;
+    /* justify-content: center;     */
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .pokusaj-pamcenje{
