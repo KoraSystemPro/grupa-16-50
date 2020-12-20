@@ -8,6 +8,9 @@ let beli = 0;
 let br_pokusaja = 0;
 let max_br_pokusaja = 6;
 
+// Ispisuje tabelu pokusaja
+ucitajPokusaje();
+
 function ispisi(){
     document.getElementById("kombinacija").innerHTML = "Kombinacija: ";
     for(i = 0; i < 4; i++){
@@ -57,8 +60,6 @@ function ucitajPokusaje(){
     }
 }
 
-// Ispisuje tabelu pokusaja
-ucitajPokusaje();
 
 function upisiUTabelu(pokusaj, crni, beli, red){
     // Ispis prethodng pokusaja
@@ -154,6 +155,7 @@ function oceni(){
         
     // Iskorisceni svi pokusaji
     if(br_pokusaja >= max_br_pokusaja){
+        document.getElementById("sakriven_red").style.display = "flex";
         document.getElementById("dgm_oceni").style.display = "none";
         document.getElementById("nova-kombinacija").style.display = "block";
     }
