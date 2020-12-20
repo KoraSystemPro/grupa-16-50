@@ -22,10 +22,12 @@ function ispisi(){
 function ucitajPokusaje(){
     let div_tabela = document.getElementById("prethodni-pokusaji");
 
-    for(let i = 0; i < max_br_pokusaja; i++){    
+    for(let i = 0; i < max_br_pokusaja; i++){   
+        // Pravimo jedan red  
         let div_red = document.createElement("div");
         div_red.classList.add("red", "flex-red");
 
+        // Pravimo decu koju treba dodati na red, odnosno sve pokusaje i resenja
         let div_pokusaj = document.createElement("div");
         div_pokusaj.classList.add("pokusaj", "flex-red");
 
@@ -46,9 +48,11 @@ function ucitajPokusaje(){
             div_resenje.appendChild(div_resenje_pamcenje);
         }
 
+        // Dodeljujemo sve pokusaje i resenja na jedan red
         div_red.appendChild(div_pokusaj);
         div_red.appendChild(div_resenje);
 
+        // Stavljamo red na stranicu
         div_tabela.appendChild(div_red);
     }
 }
@@ -57,6 +61,7 @@ function ucitajPokusaje(){
 ucitajPokusaje();
 
 function upisiUTabelu(pokusaj, crni, beli, red){
+    // Ispis prethodng pokusaja
     for(let kolona = 0; kolona < 4; kolona++){
         // Selektujemo odgovarjuce polje u koloni redom
         let polje = document.getElementById("pokusaj-pamcenje-" + red + "-" + kolona);
@@ -70,6 +75,18 @@ function upisiUTabelu(pokusaj, crni, beli, red){
             case 6: polje.style.backgroundColor = "#ff77ff"; break;
             default: polje.style.backgroundColor = "#777777"; break;
         }
+    }
+    // Ispis crnih i belih pogodaka
+    let i = 0;
+    for(let br_crnih = 0; br_crnih < crni; br_crnih++){
+        let polje = document.getElementById("resenje-pamcenje-" + red + "-" + i);
+        polje.style.backgroundColor = "red";
+        i++;
+    }
+    for(let br_belih = 0; br_belih < beli; br_belih++){
+        let polje = document.getElementById("resenje-pamcenje-" + red + "-" + i);
+        polje.style.backgroundColor = "yellow";
+        i++;
     }
 }
 
