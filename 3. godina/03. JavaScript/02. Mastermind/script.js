@@ -60,6 +60,18 @@ function ucitajPokusaje(){
     }
 }
 
+function resetujTabelu(){
+    for(let red = 0; red < max_br_pokusaja; red++){
+        for(let kolona = 0; kolona < 4; kolona++){
+            // Dohvatam polje pokusaja i resenja za svaki pokusaj i svaku kolonu
+            let polje_pokusaj = document.getElementById("pokusaj-pamcenje-" + red + "-" + kolona);
+            let polje_resenje = document.getElementById("resenje-pamcenje-" + red + "-" + kolona);
+            // Vracamo na prvobitne boje
+            polje_pokusaj.style.backgroundColor = "white";
+            polje_resenje.style.backgroundColor = "#777777";
+        }
+    }
+}
 
 function upisiUTabelu(pokusaj, crni, beli, red){
     // Ispis prethodng pokusaja
@@ -167,9 +179,9 @@ function oceni(){
 }
 
 function novaKombinacija(){
-    // Otkrivamo dugme OCENJIVANJE, resetjemo broj pokusaja, sakrivamo dugme NOVA KOMBINACIJA
-    document.getElementById("dgm_oceni").style.display = "block";
+    // Resetjemo broj pokusaja, otkrivamo dugme OCENJIVANJE, sakrivamo dugme NOVA KOMBINACIJA
     br_pokusaja = 0;
+    document.getElementById("dgm_oceni").style.display = "block";
     document.getElementById("nova-kombinacija").style.display = "none";
     // Sakrivamo dobitnu kombinaciju
     document.getElementById("sakriven_red").style.display = "none";
@@ -178,6 +190,8 @@ function novaKombinacija(){
         pokusaj[i] = 0;
         document.getElementById("dgm_p" + (i + 1)).style.backgroundColor = "#777777";
     }
+    // Resetujemo tabelu na pocetne boje
+    resetujTabelu();
 
     // console.log(Math.round(Math.random()*10000) % 6 + 1);
     // Pravljenje nove kombinacije i farbanje dugmica za dobitnu kombinaciju
@@ -200,6 +214,7 @@ function novaKombinacija(){
         }
     }
     console.log("Nova kombinacija: " + kombinacija + "\n-----------------")
+    ispisi();
 
     // 18 % 4 = 2
     // 0 1 2 3      Ostaci za deljenje sa 4
