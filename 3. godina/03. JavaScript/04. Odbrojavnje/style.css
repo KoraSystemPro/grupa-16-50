@@ -23,9 +23,11 @@ body{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    background-image: linear-gradient(120deg, rgba(140, 58, 70, 0.5), rgba(22, 67, 170, 0.5));
+
 }
 #timer {
     font-size: 5em;
     font-family: 'Audiowide', 'Arial', monospace;
-    color: black;
+    color: white;
 }
