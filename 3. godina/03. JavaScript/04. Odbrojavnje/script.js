@@ -1,4 +1,3 @@
-// Konfete
 var confetti = {
 	maxCount: 150,		//set max confetti count
 	speed: 2,			//set the particle animation speed
@@ -14,7 +13,8 @@ var confetti = {
 	remove: null,		//call to stop the confetti animation and remove all confetti immediately
 	isPaused: null,		//call and returns true or false depending on whether the confetti animation is paused
     isRunning: null,		//call and returns true or false depending on whether the animation is running
-    snow: false
+    snow: false         // snow = false     - padaju konfete, 
+                        // snow = true      - pada sneg
 };
 
 (function() {
@@ -28,8 +28,8 @@ var confetti = {
 	confetti.remove = removeConfetti;
 	confetti.isRunning = isConfettiRunning;
 	var supportsAnimationFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame;
-	var colors = ["rgba(30,144,255,", "rgba(107,142,35,", "rgba(255,215,0,", "rgba(255,192,203,", "rgba(106,90,205,", "rgba(173,216,230,", "rgba(238,130,238,", "rgba(152,251,152,", "rgba(70,130,180,", "rgba(244,164,96,", "rgba(210,105,30,", "rgba(220,20,60,"];
-	var SnowColors = ["rgba(255,255,255,","rgba(232,232,232,","rgba(216,228,255,", "rgba(207,253,253,"];
+    var colors = ["rgba(30,144,255,", "rgba(107,142,35,", "rgba(255,215,0,", "rgba(255,192,203,", "rgba(106,90,205,", "rgba(173,216,230,", "rgba(238,130,238,", "rgba(152,251,152,", "rgba(70,130,180,", "rgba(244,164,96,", "rgba(210,105,30,", "rgba(220,20,60,"];
+    var snowColors = ["rgba(255,255,255,", "rgba(243,243,243,", "rgba(209,230,242", "rgba(213,240,255,"]
 	var streamingConfetti = false;
 	var animationTimer = null;
 	var pause = false;
@@ -40,8 +40,9 @@ var confetti = {
 
 	function resetParticle(particle, width, height) {
 		particle.color = colors[(Math.random() * colors.length) | 0] + (confetti.alpha + ")");
-		particle.color2 = colors[(Math.random() * colors.length) | 0] + (confetti.alpha + ")");
-		particle.SnowColors = SnowColors[(Math.random() * SnowColors.length) | 0] + (confetti.alpha + ")");
+        particle.color2 = colors[(Math.random() * colors.length) | 0] + (confetti.alpha + ")");
+        particle.colorSnow = snowColors[(Math.random() * snowColors.length) | 0] + (confetti.alpha + ")");
+
 		particle.x = Math.random() * width;
 		particle.y = Math.random() * height - height;
 		particle.diameter = Math.random() * 10 + 5;
@@ -107,7 +108,7 @@ var confetti = {
 		if (canvas === null) {
 			canvas = document.createElement("canvas");
 			canvas.setAttribute("id", "confetti-canvas");
-			canvas.setAttribute("style", "display:block;z-index:999999;pointer-events:none;position:fixed;top:0");
+			canvas.setAttribute("style", "display:block;z-index:9;pointer-events:none;position:fixed;top:0");
 			document.body.prepend(canvas);
 			canvas.width = width;
 			canvas.height = height;
@@ -177,16 +178,22 @@ var confetti = {
 			x = x2 + particle.diameter / 2;
 			y2 = particle.y + particle.tilt + particle.diameter / 2;
 			if (confetti.gradient) {
+                // Ako ima gradijent, onda ga pravi i dodeljuej tu boju za crtanje
 				var gradient = context.createLinearGradient(x, particle.y, x2, y2);
 				gradient.addColorStop("0", particle.color);
-				gradient.addColorStop("1.0", particle.color2);
+                gradient.addColorStop("1.0", particle.color2);
+                // Crta boju za napravljen gradijent
 				context.strokeStyle = gradient;
 			} else {
-                if (confetti.snow){
-                    context.strokeStyle = particle.SnowColors;
-                } else {
+                // Koristi niz boja koji je zadat za confetti
+                if(confetti.snow == false){
+                    // Padaju konfete
                     context.strokeStyle = particle.color;
+                } else {
+                    // Pada sneg
+                    context.strokeStyle = particle.colorSnow;
                 }
+
             }
 			context.moveTo(x, particle.y);
 			context.lineTo(x2, y2);
@@ -222,47 +229,107 @@ var confetti = {
 })();
 
 
-// ---------------------------------------------------------------------------
 
+// -----------------------------------------------------------------
 
-// Pocinju da padaju pahuljice
+// Pocinje da pada sneg
 confetti.snow = true;
 confetti.start();
 
-const div_timer = document.getElementById("timer");
+var br_overlaja = 1;
+let promena_gradijenta_timer = setInterval(promeniGradijent, 20000);
+function promeniGradijent(){
+	var formirani_gradijent;
+	function generisiGradijent(){
+		let gradijent = "";
+		gradijent = "rgba("  
+		let alpha = 0.3;
+		for(let i = 0; i < 3; i++){
+			let rgb = Math.floor((Math.random()*10000) % 256 - 1);
+			gradijent += rgb + ",";
+		}
+		gradijent += alpha + ")";
+		return gradijent;
+	}
 
-// Postavljamo vreme do kog brojimo
-const nova_godina = new Date(2021, 0, 1, 00, 00, 00).getTime();
+	let ugao = Math.floor(((Math.random() * 10000) % 361 - 1)) + "deg";
+	formirani_gradijent = "linear-gradient(" + ugao + "," + generisiGradijent() + "," + generisiGradijent() + ")";
 
-function izracunajRazliku(){
-    // Uzimamo trenutno vreme
-    let trenutno_vreme = new Date().getTime();
-    let razmak_do_nove_godine = nova_godina - trenutno_vreme;
-    // console.log(razmak_do_nove_godine);
-
-    // Dosli smo do nove godine
-    if(razmak_do_nove_godine <= 0){
-        clearInterval(do_nove_godine_interval);
-        // Pocinju konfete na 1min
-        confetti.stop();
-        confetti.snow = false;
-        confetti.start(120000, 300, 500);
-
-        div_timer.innerHTML = "SREĆNA NOVA 2021. GODINA!";
-        return;
-    }
-
-    // Racunamo vreme do nove godine
-    let dani = Math.floor(razmak_do_nove_godine / (1000 * 60 * 60 * 24));
-    let sati = Math.floor((razmak_do_nove_godine % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)); 
-    let minuti = Math.floor((razmak_do_nove_godine % (1000 * 60 * 60)) / (1000 * 60));
-    let sekunde = Math.floor((razmak_do_nove_godine % (1000 * 60)) / (1000));
-    // console.log("dani: " + dani + "\nsati: " + sati + "\nminuti: " + minuti + "\nsekunde: " + sekunde);
-
-    div_timer.innerHTML = dani + "d " + sati + "h " + minuti + "m " + sekunde + "s";
+	if(br_overlaja == 1){
+		document.getElementById("overlay" + 1).style.backgroundImage = formirani_gradijent;
+		document.getElementById("overlay" + 2).style.opacity = 0;
+		document.getElementById("overlay" + 1).style.opacity = 1;
+		br_overlaja = 2;
+	} else if (br_overlaja == 3){
+		document.getElementById("overlay" + 2).style.backgroundImage = formirani_gradijent;
+		document.getElementById("overlay" + 1).style.opacity = 0;
+		document.getElementById("overlay" + 2).style.opacity = 1;
+		br_overlaja = 1;
+	} else {
+		br_overlaja = 3;
+	}
 }
 
+const vreme = document.getElementById("timer");
+const nova_godina = new Date(2021, 0, 1, 0, 0, 0, 0).getTime();
 
-izracunajRazliku();1
-var do_nove_godine_interval = setInterval(izracunajRazliku, 1000);
+function dohvatiTrenutnoVreme(){
+    let trenutno_vreme = new Date().getTime();
+    let do_nove_godine = nova_godina - trenutno_vreme; // u milisekundama
 
+    // Stigli smo do nove godine!
+    if(do_nove_godine <= 0){
+		document.getElementById("timer").style.fontSize = "15em";
+        confetti.stop();
+        confetti.snow = false;
+        confetti.start(60000, 500, 100);
+        vreme.innerHTML = "SREĆNA NOVA 2021. GODINA!"
+        // vreme.innerHTML = "СРЕЋНА НОВА 2021. ГОДИНА!"
+        clearInterval(timer_interval);
+        return
+    }
+
+    // Izracunavamo dane, sate, minute, sekunde
+    let dani = Math.floor(do_nove_godine / (1000 * 60 * 60 * 24));
+    let sati = Math.floor((do_nove_godine % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let minuti = Math.floor((do_nove_godine % (1000 * 60 * 60)) / (1000 * 60));
+    let sekundi = Math.floor((do_nove_godine % (1000 * 60)) / 1000);
+    
+	// Ispis u paragraf
+	let t_d = "d ";
+	let t_h = "h ";
+	let t_m = "m ";
+	let t_s = "s ";
+ 	if(dani > 0){
+		// d h m s
+		vreme.innerHTML = dani + t_d + sati + t_h + minuti + t_m + sekundi + t_s;
+	} else if (dani == 0 && sati > 0){
+		// h m s
+		vreme.innerHTML = sati + t_h + minuti + t_m + sekundi + t_s;
+		document.getElementById("timer").style.fontSize = "13em";
+	} else if (dani == 0 && sati == 0 && minuti > 0){
+		// m s
+		vreme.innerHTML = minuti + t_m + sekundi + t_s;
+		document.getElementById("timer").style.fontSize = "20em";
+	} else {
+		vreme.innerHTML = sekundi;
+		document.getElementById("timer").style.fontSize = "50em";
+
+	}
+
+}
+
+// // Kursor animacija
+// let kursor_div = document.querySelector(".cursor");
+// window.addEventListener('mousemove', kursor);;
+// // Pomeraj za kurosor na stranici
+// function kursor(pomeraj){
+// 	kursor_div.style.top = pomeraj.pageY + "px";
+// 	kursor_div.style.left = pomeraj.pageX + "px";
+// }
+
+
+
+// Pozivamo funkciju jednom da se izvrsi pri ucitavanju stranice i postavljamo interval za izvrsavanje
+dohvatiTrenutnoVreme();
+const timer_interval = setInterval(dohvatiTrenutnoVreme, 1000);
