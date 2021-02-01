@@ -1,0 +1,10 @@
+C:\Users\lukak\Documents\SystemPro\GitHub\grupa-16-50\3. godina\04. C# Objektno orjentisano programiranje\2\Racun\bin\Debug\Racun.exe.config
+C:\Users\lukak\Documents\SystemPro\GitHub\grupa-16-50\3. godina\04. C# Objektno orjentisano programiranje\2\Racun\bin\Debug\Racun.exe
+C:\Users\lukak\Documents\SystemPro\GitHub\grupa-16-50\3. godina\04. C# Objektno orjentisano programiranje\2\Racun\bin\Debug\Racun.pdb
+C:\Users\lukak\Documents\SystemPro\GitHub\grupa-16-50\3. godina\04. C# Objektno orjentisano programiranje\2\Racun\obj\Debug\Racun.csprojAssemblyReference.cache
+C:\Users\lukak\Documents\SystemPro\GitHub\grupa-16-50\3. godina\04. C# Objektno orjentisano programiranje\2\Racun\obj\Debug\Racun.Form1.resources
+C:\Users\lukak\Documents\SystemPro\GitHub\grupa-16-50\3. godina\04. C# Objektno orjentisano programiranje\2\Racun\obj\Debug\Racun.Properties.Resources.resources
+C:\Users\lukak\Documents\SystemPro\GitHub\grupa-16-50\3. godina\04. C# Objektno orjentisano programiranje\2\Racun\obj\Debug\Racun.csproj.GenerateResource.cache
+C:\Users\lukak\Documents\SystemPro\GitHub\grupa-16-50\3. godina\04. C# Objektno orjentisano programiranje\2\Racun\obj\Debug\Racun.csproj.CoreCompileInputs.cache
+C:\Users\lukak\Documents\SystemPro\GitHub\grupa-16-50\3. godina\04. C# Objektno orjentisano programiranje\2\Racun\obj\Debug\Racun.exe
+C:\Users\lukak\Documents\SystemPro\GitHub\grupa-16-50\3. godina\04. C# Objektno orjentisano programiranje\2\Racun\obj\Debug\Racun.pdb

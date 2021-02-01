@@ -1,0 +1,7 @@
+C:\Users\lukak\Documents\SystemPro\GitHub\grupa-16-50\3. godina\04. C# Objektno orjentisano programiranje\Uvod\bin\Debug\Uvod.exe.config
+C:\Users\lukak\Documents\SystemPro\GitHub\grupa-16-50\3. godina\04. C# Objektno orjentisano programiranje\Uvod\bin\Debug\Uvod.exe
+C:\Users\lukak\Documents\SystemPro\GitHub\grupa-16-50\3. godina\04. C# Objektno orjentisano programiranje\Uvod\bin\Debug\Uvod.pdb
+C:\Users\lukak\Documents\SystemPro\GitHub\grupa-16-50\3. godina\04. C# Objektno orjentisano programiranje\Uvod\obj\Debug\Uvod.csprojAssemblyReference.cache
+C:\Users\lukak\Documents\SystemPro\GitHub\grupa-16-50\3. godina\04. C# Objektno orjentisano programiranje\Uvod\obj\Debug\Uvod.csproj.CoreCompileInputs.cache
+C:\Users\lukak\Documents\SystemPro\GitHub\grupa-16-50\3. godina\04. C# Objektno orjentisano programiranje\Uvod\obj\Debug\Uvod.exe
+C:\Users\lukak\Documents\SystemPro\GitHub\grupa-16-50\3. godina\04. C# Objektno orjentisano programiranje\Uvod\obj\Debug\Uvod.pdb
