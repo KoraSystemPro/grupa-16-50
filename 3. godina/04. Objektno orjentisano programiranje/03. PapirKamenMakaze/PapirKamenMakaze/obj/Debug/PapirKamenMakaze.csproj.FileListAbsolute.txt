@@ -1,0 +1,9 @@
+E:\16-50\PapirKamenMakaze\PapirKamenMakaze\bin\Debug\PapirKamenMakaze.exe.config
+E:\16-50\PapirKamenMakaze\PapirKamenMakaze\bin\Debug\PapirKamenMakaze.exe
+E:\16-50\PapirKamenMakaze\PapirKamenMakaze\bin\Debug\PapirKamenMakaze.pdb
+E:\16-50\PapirKamenMakaze\PapirKamenMakaze\obj\Debug\PapirKamenMakaze.csprojResolveAssemblyReference.cache
+E:\16-50\PapirKamenMakaze\PapirKamenMakaze\obj\Debug\PapirKamenMakaze.Form1.resources
+E:\16-50\PapirKamenMakaze\PapirKamenMakaze\obj\Debug\PapirKamenMakaze.Properties.Resources.resources
+E:\16-50\PapirKamenMakaze\PapirKamenMakaze\obj\Debug\PapirKamenMakaze.csproj.GenerateResource.Cache
+E:\16-50\PapirKamenMakaze\PapirKamenMakaze\obj\Debug\PapirKamenMakaze.exe
+E:\16-50\PapirKamenMakaze\PapirKamenMakaze\obj\Debug\PapirKamenMakaze.pdb
