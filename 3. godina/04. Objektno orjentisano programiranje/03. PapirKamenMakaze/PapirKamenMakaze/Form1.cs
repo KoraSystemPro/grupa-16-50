@@ -63,9 +63,26 @@ namespace PapirKamenMakaze
                     MessageBox.Show("Došlo je do greške!");
                     break;
             }
-            
+            //Prevedno u if naredbu
+            //if (kompjuter == 1)
+            //{
+            //    pictureBox2.Image = PapirKamenMakaze.Properties.Resources.paper;
+            //}
+            //else if (kompjuter == 2)
+            //{
+            //    pictureBox2.Image = PapirKamenMakaze.Properties.Resources.rock;
+            //}
+            //else if (kompjuter == 3)
+            //{
+            //    pictureBox2.Image = PapirKamenMakaze.Properties.Resources.scissors;
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Došlo je do greške!");
+            //}
+
             // Pobedio je covek
-            if((covek1 == 1 && kompjuter == 2) || (covek1 == 2 && kompjuter == 3) || (covek1 == 3 && kompjuter == 1))
+            if ((covek1 == 1 && kompjuter == 2) || (covek1 == 2 && kompjuter == 3) || (covek1 == 3 && kompjuter == 1))
             {
                 MessageBox.Show("Pobedio si!");
             }
