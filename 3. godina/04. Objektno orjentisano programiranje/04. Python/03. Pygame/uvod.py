@@ -1,5 +1,14 @@
 # Importujemo i inicijalizujemo pygame biblioteku
-import pygame
+import pygame6 # # include <iostream>
+
+'''
+    #include <iostream>
+    ------
+    using namespace std;
+    cin >> a, cout << a
+    ------
+    std::cin >> a, std::cout << a
+'''
 pygame.init()
 
 # Surface - pravougaonik na kome mozemo da crtamo, ili mozemo da stavimo neku sliku
@@ -12,6 +21,7 @@ game_over = False
 while not game_over == True:
     # 1. Dohvatamo input od korisnika
     # pygame.event.get() - vraca red dugmica koji su pritisnuti, po redu pritiskanja
+    # [i, u, y, k, j, h, n, p, o]
     for klik in pygame.event.get():
         if klik.type == pygame.QUIT:
             game_over = True
