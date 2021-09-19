@@ -1,7 +1,7 @@
 var sirina = 600;
 var visina = 600;
-var redovi = 10;
-var kolona = 10;
+var redovi = 20;
+var kolona = 20;
 
 function spremiPlatno() {
     let platno = document.createElement("canvas");
@@ -31,11 +31,23 @@ function crtaj(ctx, matrica) {
 
 function prebrojKomsije(matrica, x, y){
     let br_komsija = 0;
-    for(let i = -1; i < 2 && x+i < redovi && x+i > -1; i++){
-        for(let j = -1; j < 2 && y+j < kolona && y+j > -1; j++){
-            br_komsija += matrica[x+i][y+j];
+    // Ne racunamo granice
+    // for(let i = -1; i < 2 && x+i < redovi && x+i > -1; i++){
+    //     for(let j = -1; j < 2 && y+j < kolona && y+j > -1; j++){
+    //         br_komsija += matrica[x+i][y+j];
+    //     }
+    // }
+
+    // Granice spojene
+    for(let i = -1; i < 2; i++){
+        for(let j = -1; j < 2; j++){
+            let red = (x + i + redovi) % redovi;
+            let col = (y + j + kolona) % kolona;
+            br_komsija += matrica[red][col];
         }
     }
+
+
     br_komsija = br_komsija - matrica[x][y];
     return br_komsija;
 }
@@ -46,7 +58,7 @@ function napraviSledecuGeneraciju(prethodna_gen){
     for(let i = 0; i < redovi; i++){
         for(let j = 0; j < kolona; j++){
             // Brojimo komsije
-            let br_komsija = prebrojKomsije(prethodna_gen, j, i);
+            let br_komsija = prebrojKomsije(prethodna_gen, i, j);
             // Pom promenljiva radi lakseg citanja
             let trenutna_celija = prethodna_gen[i][j];
 
@@ -79,16 +91,19 @@ function generisiIgru(matrica) {
     return matrica;
 }
 
-function main() {
-    let canv, ctx = spremiPlatno()
-    let igra = napravi2DMatricu(redovi, kolona);
-    igra = generisiIgru(igra);
-    console.log(igra);
-    crtaj(ctx, igra);
-
+var ctx, canv, igra;
+function azurirajIgru(){
     igra = napraviSledecuGeneraciju(igra);
     crtaj(ctx, igra);
+}
+
+function main() {
+    canv, ctx = spremiPlatno()
+    igra = napravi2DMatricu(redovi, kolona);
+    igra = generisiIgru(igra);
+    crtaj(ctx, igra);
     
+    setInterval(azurirajIgru, 100);
 }
 
 document.addEventListener("DOMContentLoaded", main);
