@@ -98,6 +98,8 @@ function azurirajIgru(){
 }
 
 function main() {
+    nacrtajScenu();
+    
     canv, ctx = spremiPlatno()
     igra = napravi2DMatricu(redovi, kolona);
     igra = generisiIgru(igra);
