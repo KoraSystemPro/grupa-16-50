@@ -7,6 +7,7 @@ function spremiPlatno() {
     let platno = document.createElement("canvas");
     platno.width = sirina;
     platno.height = visina;
+    platno.id = "slika";
     document.body.appendChild(platno);
     let kontekstPlatno = platno.getContext("2d");
     return platno, kontekstPlatno;
@@ -92,9 +93,13 @@ function generisiIgru(matrica) {
 }
 
 var ctx, canv, igra;
+
 function azurirajIgru(){
+    azurirajMaterijalPrstena(document.getElementById("slika"));
+
     igra = napraviSledecuGeneraciju(igra);
     crtaj(ctx, igra);
+
 }
 
 function main() {
