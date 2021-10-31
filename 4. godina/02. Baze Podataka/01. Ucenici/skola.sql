@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 31, 2021 at 05:17 PM
+-- Generation Time: Oct 31, 2021 at 06:15 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -33,6 +33,49 @@ CREATE TABLE `NastavnoOsoblje` (
   `Prezime` varchar(100) NOT NULL,
   `PredmetID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `NastavnoOsoblje`
+--
+
+INSERT INTO `NastavnoOsoblje` (`ID`, `Ime`, `Prezime`, `PredmetID`) VALUES
+(1, 'Molojko', 'Pekic', 1),
+(2, 'Petar', 'Lanovic', 1),
+(3, 'Jevrem', 'Obilic', 2),
+(4, 'Lana', 'Cvijic', 2),
+(5, 'Frenk', 'Svetlovic', 3),
+(6, 'Mitar', 'Guz', 3),
+(7, 'Seckar', 'Urosevic', 4),
+(8, 'Panta', 'Lemic', 4),
+(9, 'Siptar', 'Tekic', 5),
+(10, 'Kristina', 'Reljkovic', 5),
+(11, 'Lepar', 'Menovic', 6),
+(12, 'Boris', 'Duboka', 6),
+(13, 'Kan', 'Cvetkovic', 7),
+(14, 'Fandjio', 'Bengin', 7),
+(15, 'Georgije', 'Zoric', 8),
+(16, 'Luka', 'Avramovic', 8),
+(17, 'Nada', 'Cuk', 9),
+(18, 'Bela', 'Obrenovic', 9),
+(19, 'Zebra', 'Zekic', 10),
+(20, 'Mihajla', 'Vitanovic', 10),
+(21, 'Sladjana', 'Melburn', 11),
+(22, 'Slobodan', 'Mirjanovic', 11),
+(23, 'Drvo', 'Kartal', 12),
+(24, 'Nikola', 'Teric', 12),
+(25, 'Tereza', 'Vita', 13),
+(26, 'Daljko', 'Paljevina', 13),
+(27, 'Aleksa', 'Senina', 14),
+(28, 'Goca', 'Emilija', 14),
+(29, 'Peca', 'Djordjevic', 15),
+(30, 'Vladimir', 'Jankovic', 15),
+(31, 'Ivana', 'Mijin', 16),
+(32, 'Noa', 'Bogosavljevic', 16),
+(33, 'Lazar', 'Ristic', 17),
+(34, 'Elena', 'Prokic', 17),
+(35, 'Lana', 'Lazarevic', 18),
+(36, 'Katariana', 'Vukas', 18),
+(37, 'Bela', 'Marijanovic', 19);
 
 -- --------------------------------------------------------
 
@@ -850,7 +893,8 @@ INSERT INTO `Ucenici` (`ID`, `Ime`, `Prezime`, `Razred`, `Odeljenje`) VALUES
 -- Indexes for table `NastavnoOsoblje`
 --
 ALTER TABLE `NastavnoOsoblje`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `fk_PredmetID(ID)` (`PredmetID`);
 
 --
 -- Indexes for table `Predmeti`
@@ -872,7 +916,7 @@ ALTER TABLE `Ucenici`
 -- AUTO_INCREMENT for table `NastavnoOsoblje`
 --
 ALTER TABLE `NastavnoOsoblje`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `Predmeti`
@@ -885,6 +929,16 @@ ALTER TABLE `Predmeti`
 --
 ALTER TABLE `Ucenici`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1558;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `NastavnoOsoblje`
+--
+ALTER TABLE `NastavnoOsoblje`
+  ADD CONSTRAINT `fk_PredmetID(ID)` FOREIGN KEY (`PredmetID`) REFERENCES `Predmeti` (`ID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
