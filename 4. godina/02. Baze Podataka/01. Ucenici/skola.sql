@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 31, 2021 at 06:15 PM
+-- Generation Time: Nov 07, 2021 at 05:16 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.0.11
 
@@ -80,6 +80,26 @@ INSERT INTO `NastavnoOsoblje` (`ID`, `Ime`, `Prezime`, `PredmetID`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `ObaveznostPredmeta`
+--
+
+CREATE TABLE `ObaveznostPredmeta` (
+  `ID` tinyint(4) NOT NULL,
+  `Naziv` varchar(30) NOT NULL,
+  `Opis` varchar(200) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `ObaveznostPredmeta`
+--
+
+INSERT INTO `ObaveznostPredmeta` (`ID`, `Naziv`, `Opis`) VALUES
+(1, 'Obavezan', 'Svaki učenik mora da završi ovaj predmet.'),
+(2, 'Izborni', 'Učenik ima izbor između više različitih predmeta.');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `Predmeti`
 --
 
@@ -95,31 +115,31 @@ CREATE TABLE `Predmeti` (
 --
 
 INSERT INTO `Predmeti` (`ID`, `Naziv`, `Izborni`, `Opis`) VALUES
-(1, 'Matematika', 0, ''),
-(2, 'Srpski jezik', 0, ''),
-(3, 'Italijanski jezik', 0, ''),
-(4, 'Francuski jezik', 0, ''),
-(5, 'Nemacki jezik', 0, ''),
-(6, 'Ruski jezik', 0, ''),
-(7, 'Spanski jezik', 0, ''),
-(8, 'Biologija', 0, 'Ucenje o prirodi'),
-(9, 'Priroda i drustvo', 0, 'Prethodnik biologiji i geografiji'),
-(10, 'Engleski jezik', 0, ''),
-(11, 'Geografija', 0, ''),
-(12, 'Hemija', 0, ''),
-(13, 'Fizika', 0, ''),
-(14, 'Fizicko obrazovanje', 0, ''),
-(15, 'Obavezne fizicke aktivnosti', 0, ''),
-(16, 'Tehnika i tehnologija', 0, ''),
-(17, 'Likovna kultura', 0, ''),
-(18, 'Muzicka kultura', 0, ''),
-(19, 'Informatika i racunarstvo', 0, ''),
-(20, 'Istorija', 0, ''),
-(21, 'Hor i orkestar', 1, ''),
-(22, 'Gradjansko obrazovanje', 1, ''),
-(23, 'Veronauka', 1, ''),
-(24, 'Crtanje slikanje i vajanje', 1, ''),
-(25, 'Cas odeljenskog staresine', 0, '');
+(1, 'Matematika', 1, ''),
+(2, 'Srpski jezik', 1, ''),
+(3, 'Italijanski jezik', 2, ''),
+(4, 'Francuski jezik', 2, ''),
+(5, 'Nemacki jezik', 2, ''),
+(6, 'Ruski jezik', 2, ''),
+(7, 'Spanski jezik', 2, ''),
+(8, 'Biologija', 1, 'Ucenje o prirodi'),
+(9, 'Priroda i drustvo', 1, 'Prethodnik biologiji i geografiji'),
+(10, 'Engleski jezik', 1, ''),
+(11, 'Geografija', 1, ''),
+(12, 'Hemija', 1, ''),
+(13, 'Fizika', 1, ''),
+(14, 'Fizicko obrazovanje', 1, ''),
+(15, 'Obavezne fizicke aktivnosti', 1, ''),
+(16, 'Tehnika i tehnologija', 1, ''),
+(17, 'Likovna kultura', 1, ''),
+(18, 'Muzicka kultura', 1, ''),
+(19, 'Informatika i racunarstvo', 1, ''),
+(20, 'Istorija', 1, ''),
+(21, 'Hor i orkestar', 2, ''),
+(22, 'Gradjansko obrazovanje', 2, ''),
+(23, 'Veronauka', 2, ''),
+(24, 'Crtanje slikanje i vajanje', 2, ''),
+(25, 'Cas odeljenskog staresine', 1, '');
 
 -- --------------------------------------------------------
 
@@ -897,10 +917,17 @@ ALTER TABLE `NastavnoOsoblje`
   ADD KEY `fk_PredmetID(ID)` (`PredmetID`);
 
 --
+-- Indexes for table `ObaveznostPredmeta`
+--
+ALTER TABLE `ObaveznostPredmeta`
+  ADD PRIMARY KEY (`ID`);
+
+--
 -- Indexes for table `Predmeti`
 --
 ALTER TABLE `Predmeti`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `fk_Izborni(ID)` (`Izborni`);
 
 --
 -- Indexes for table `Ucenici`
@@ -917,6 +944,12 @@ ALTER TABLE `Ucenici`
 --
 ALTER TABLE `NastavnoOsoblje`
   MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+
+--
+-- AUTO_INCREMENT for table `ObaveznostPredmeta`
+--
+ALTER TABLE `ObaveznostPredmeta`
+  MODIFY `ID` tinyint(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `Predmeti`
@@ -939,6 +972,12 @@ ALTER TABLE `Ucenici`
 --
 ALTER TABLE `NastavnoOsoblje`
   ADD CONSTRAINT `fk_PredmetID(ID)` FOREIGN KEY (`PredmetID`) REFERENCES `Predmeti` (`ID`);
+
+--
+-- Constraints for table `Predmeti`
+--
+ALTER TABLE `Predmeti`
+  ADD CONSTRAINT `fk_Izborni(ID)` FOREIGN KEY (`Izborni`) REFERENCES `ObaveznostPredmeta` (`ID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
