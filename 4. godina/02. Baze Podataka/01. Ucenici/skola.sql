@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Nov 07, 2021 at 05:16 PM
+-- Generation Time: Nov 21, 2021 at 05:03 PM
 -- Server version: 10.4.21-MariaDB
--- PHP Version: 8.0.11
+-- PHP Version: 8.0.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -905,6 +905,17 @@ INSERT INTO `Ucenici` (`ID`, `Ime`, `Prezime`, `Razred`, `Odeljenje`) VALUES
 (1556, 'Bojan', 'Radeta', 8, 3),
 (1557, 'Jasmina', 'Premcevski', 8, 3);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Ucenici_Predmeti`
+--
+
+CREATE TABLE `Ucenici_Predmeti` (
+  `UcenikID` int(11) NOT NULL,
+  `PredmetID` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 --
 -- Indexes for dumped tables
 --
@@ -934,6 +945,13 @@ ALTER TABLE `Predmeti`
 --
 ALTER TABLE `Ucenici`
   ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `Ucenici_Predmeti`
+--
+ALTER TABLE `Ucenici_Predmeti`
+  ADD PRIMARY KEY (`UcenikID`,`PredmetID`),
+  ADD KEY `fk_PredmetID_ID(Predmeti)` (`PredmetID`);
 
 --
 -- AUTO_INCREMENT for dumped tables
@@ -978,6 +996,13 @@ ALTER TABLE `NastavnoOsoblje`
 --
 ALTER TABLE `Predmeti`
   ADD CONSTRAINT `fk_Izborni(ID)` FOREIGN KEY (`Izborni`) REFERENCES `ObaveznostPredmeta` (`ID`);
+
+--
+-- Constraints for table `Ucenici_Predmeti`
+--
+ALTER TABLE `Ucenici_Predmeti`
+  ADD CONSTRAINT `fk_PredmetID_ID(Predmeti)` FOREIGN KEY (`PredmetID`) REFERENCES `Predmeti` (`ID`),
+  ADD CONSTRAINT `fk_UcenikID_ID(Ucenik)` FOREIGN KEY (`UcenikID`) REFERENCES `Ucenici` (`ID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
