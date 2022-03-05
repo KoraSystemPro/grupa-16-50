@@ -12,43 +12,43 @@ include "./funkcije/server.php";
     <title>Dućan</title>
 </head>
 <body>
+    <?php
+        
+        
+
+    ?>
     <div class="container">
         <div class="zaglavlje">
             <h1 class="naslov">Dućan</h1>
         </div>
         <div class="dodavanje">
-            <form action="./index.php" method="$_GET">
+            <form action="./dodaj.php" method="$_GET">
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Ime proizvoda..." aria-label="Ime proizvoda..." aria-describedby="button-addon2">
-                    <select class="form-select">
-                        <!-- <option selected>Kategorija</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option> -->
+                    <input name="ime" type="text" class="form-control" placeholder="Ime proizvoda...">
+                    <input name="cena" type="number" class="form-control" placeholder="Cena proizvoda...">
+                    <select name="kategorija" class="form-select">
                         <?php
                             $konekcija = otvori_konekciju("localhost", "root", "", "prodavnica");
                             $rez = $konekcija->query("SELECT * FROM `Category`;");
                             while($row = $rez->fetch_assoc()){
                                 echo '<option value="' . $row['ID'] . '">' . $row['Name'] . '</option>';
                             }
-                            
                             zatvori_konekciju($konekcija);
                         ?>
                     </select>
-                    <select class="form-select">
+                    <select name="dobavljac" class="form-select">
                         <?php
                             $konekcija = otvori_konekciju("localhost", "root", "", "prodavnica");
                             $rez = $konekcija->query("SELECT * FROM `Provider`;");
                             while($row = $rez->fetch_assoc()){
                                 echo '<option value="' . $row['ID'] . '">' . $row['Name'] . '</option>';
                             }
-                            
                             zatvori_konekciju($konekcija);
                         ?>
 
                     </select>
 
-                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">Dodaj</button>
+                    <button name="operacija" value="dodavanje" class="btn btn-outline-secondary" type="submit" id="button-addon2">Dodaj</button>
 
                 </div>
 
@@ -65,9 +65,18 @@ include "./funkcije/server.php";
         </div>
         <div class="rezultati">
             <?php 
-                napravi_item("#", "Hleb", "Sava beli hleb", 64.99);
-                napravi_item("#", "Orbit mint", "Hladne osvezavajuce zvake", 59.99);
-                napravi_item("#", "Banana", "Banane iz Konga", 120.00);
+                $konekcija = otvori_konekciju("localhost", "root", "", "prodavnica");
+                $sql = "SELECT Products.Name, Products.Price, Category.Name AS 'Kategorija', Provider.Name AS 'Dobavljac'
+                        FROM Products
+                        INNER JOIN Category ON Products.CategoryID=Category.ID
+                        INNER JOIN Provider ON Products.ProviderID=Provider.ID;";
+                $rez = $konekcija->query($sql);
+                while($row = $rez->fetch_assoc()){
+                    napravi_item("#", $row['Name'], $row['Kategorija'] . " - " . $row['Dobavljac'], $row['Price']);
+                }
+ 
+
+                zatvori_konekciju($konekcija);
             ?>
         </div>
     </div>
