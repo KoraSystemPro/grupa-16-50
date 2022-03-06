@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Feb 20, 2022 at 05:45 PM
+-- Generation Time: Mar 06, 2022 at 05:08 PM
 -- Server version: 10.4.21-MariaDB
 -- PHP Version: 8.1.2
 
@@ -45,6 +45,25 @@ CREATE TABLE `Category` (
   `Name` varchar(256) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `Category`
+--
+
+INSERT INTO `Category` (`ID`, `Name`) VALUES
+(1, 'Napitak'),
+(2, 'Žestoko piće'),
+(3, 'Slaniši'),
+(4, 'Slatkiši'),
+(5, 'Hemijski proizvodi'),
+(6, 'Tehnika'),
+(7, 'Mlečni proizvodi'),
+(8, 'Voće'),
+(9, 'Povrće'),
+(10, 'Zamrznuti proizvodi'),
+(11, 'Mesni proizvodi'),
+(12, 'Pekara'),
+(13, 'Igračke');
+
 -- --------------------------------------------------------
 
 --
@@ -74,6 +93,19 @@ CREATE TABLE `Products` (
   `Price` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `Products`
+--
+
+INSERT INTO `Products` (`ID`, `Name`, `ProviderID`, `CategoryID`, `Price`) VALUES
+(1, 'Hleb', 1, 12, 65),
+(3, 'Orbit Žvake', 2, 4, 65),
+(4, 'CocaCola 1l', 4, 1, 80),
+(5, 'Fanta 1l', 3, 1, 89),
+(6, 'Jogurt Imlek', 1, 7, 110),
+(7, 'Grčki jogurt 1.5l', 3, 7, 120),
+(8, 'Jogurt Subotička mlekara 1.5l', 1, 7, 125);
+
 -- --------------------------------------------------------
 
 --
@@ -85,6 +117,16 @@ CREATE TABLE `Provider` (
   `Name` varchar(512) NOT NULL,
   `Country` varchar(128) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `Provider`
+--
+
+INSERT INTO `Provider` (`ID`, `Name`, `Country`) VALUES
+(1, 'Distribucija DOO', 'Srbija'),
+(2, 'Kruton Distribuiton', 'Francuska'),
+(3, 'Mario Distribuare', 'Italia'),
+(4, 'Madrid Trading', 'Španija');
 
 -- --------------------------------------------------------
 
@@ -160,7 +202,7 @@ ALTER TABLE `Basket`
 -- AUTO_INCREMENT for table `Category`
 --
 ALTER TABLE `Category`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `Orders`
@@ -172,13 +214,13 @@ ALTER TABLE `Orders`
 -- AUTO_INCREMENT for table `Products`
 --
 ALTER TABLE `Products`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `Provider`
 --
 ALTER TABLE `Provider`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `Users`
