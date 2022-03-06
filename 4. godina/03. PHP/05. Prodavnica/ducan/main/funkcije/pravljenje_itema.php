@@ -1,5 +1,5 @@
 <?php
-function napravi_item($img_src, $ime_proizvoda, $opis_proizvoda, $cena_proizvoda){
+function napravi_item($img_src, $id, $ime_proizvoda, $opis_proizvoda, $cena_proizvoda){
     echo '
     <div class="item">
         <div class="item-slika">
@@ -17,10 +17,12 @@ function napravi_item($img_src, $ime_proizvoda, $opis_proizvoda, $cena_proizvoda
             <div class="item-posle-cena">
                 <p>' . $cena_proizvoda . ' RSD </p>
             </div>
+            <form 
             <div class="item-posle-dugmici">
-                <form action="./index.php" method="POST">
-                    <button type="button" class="btn btn-primary">Dodaj u korpu</button>
-                    <button type="button" class="btn btn-success">Kupi sada</button>
+                <form action="./kupovina.php" method="GET">
+                    <button name="korpa" value="' . $id . '" type="submit" class="btn btn-primary">Dodaj u korpu</button>
+                    <button name="kupovina" value="' . $id . '"  type="submit" class="btn btn-success">Kupi sada</button>
+                    <input name="kolicina" type="number" class="form-control" placeholder="1">
                 </form>
             </div>
         </div>

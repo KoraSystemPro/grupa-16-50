@@ -13,7 +13,18 @@ include "./funkcije/server.php";
 </head>
 <body>
     <?php
-        
+        $where = "WHERE Products.Name LIKE '%";
+        if(isset($_GET['pretraga'])){
+            // Ako je prazna pretraga nemam uslov za prikazivanje proizvoda
+            if($_GET['pretraga'] == ''){
+                $where = "";
+            } else {
+                // Prikazi sve proizvode koji imaju pretrazenu rec u nazivu
+                $where = $where . $_GET['pretraga'] . "%'";
+            }   
+        } else {
+            $where = "";
+        }
         
 
     ?>
@@ -58,21 +69,23 @@ include "./funkcije/server.php";
         <div class="pretraga">
             <form action="./index.php" method="get">
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" placeholder="Pretraži..." aria-label="Pretraži..." aria-describedby="button-addon2">
-                    <button class="btn btn-outline-secondary" type="button" id="button-addon2">Pretraga</button>
+                    <input type="text" name="pretraga" value=<?php echo "'" . $_GET['pretraga'] . "'"?> class="form-control" placeholder="Pretraži...">
+                    <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Pretraga</button>
                 </div>
             </form>
         </div>
         <div class="rezultati">
             <?php 
                 $konekcija = otvori_konekciju("localhost", "root", "", "prodavnica");
-                $sql = "SELECT Products.Name, Products.Price, Category.Name AS 'Kategorija', Provider.Name AS 'Dobavljac'
+                $sql = "SELECT Products.ID, Products.Name, Products.Price, Category.Name AS 'Kategorija', Provider.Name AS 'Dobavljac'
                         FROM Products
                         INNER JOIN Category ON Products.CategoryID=Category.ID
-                        INNER JOIN Provider ON Products.ProviderID=Provider.ID;";
+                        INNER JOIN Provider ON Products.ProviderID=Provider.ID
+                        " . $where . ";";
+                        
                 $rez = $konekcija->query($sql);
                 while($row = $rez->fetch_assoc()){
-                    napravi_item("#", $row['Name'], $row['Kategorija'] . " - " . $row['Dobavljac'], $row['Price']);
+                    napravi_item("#", $row['ID'], $row['Name'], $row['Kategorija'] . " - " . $row['Dobavljac'], $row['Price']);
                 }
  
 
