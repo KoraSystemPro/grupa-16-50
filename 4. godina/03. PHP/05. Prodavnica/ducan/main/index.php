@@ -7,8 +7,9 @@ include "./funkcije/server.php";
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="./stil.css">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"> -->
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/stil.css">
     <title>Dućan</title>
 </head>
 <body>
@@ -24,6 +25,7 @@ include "./funkcije/server.php";
             }   
         } else {
             $where = "";
+            $_GET['pretraga'] = "";
         }
         
 
@@ -92,6 +94,7 @@ include "./funkcije/server.php";
                 zatvori_konekciju($konekcija);
             ?>
         </div>
+        
     </div>
 </body>
 </html>
