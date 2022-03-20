@@ -1,7 +1,9 @@
 <?php
 include "./funkcije/server.php";
 $konekcija = otvori_konekciju("localhost", "root", "", "prodavnica");
-$userID = 1;
+
+session_start();
+$userID = $_SESSION['id'];
 
 if(isset($_GET['korpa'], $_GET['kolicina'])){
     $sql = "INSERT INTO `Basket`(`UserID`, `ProductID`, `Amount`) 
@@ -14,7 +16,7 @@ if(isset($_GET['korpa'], $_GET['kolicina'])){
     unset($_GET['korpa'], $_GET['kolicina']);
 
 } else if(isset($_GET['kupovina'], $_GET['kolicina'])){
-    $sql = "SELECT Price FROM Products WHERE ID=$userID";
+    $sql = "SELECT Price FROM Products WHERE ID=" . $_GET['kupovina'] . ";";
     if($cena = $konekcija->query($sql))
         $cena = $cena->fetch_assoc()['Price'];
     else 

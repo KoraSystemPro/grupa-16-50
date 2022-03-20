@@ -8,3 +8,14 @@
     border: 1px solid lightgrey;
     border-radius: 20px;
 }
+
+.zaglavlje{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.zaglavlje-desno{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

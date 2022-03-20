@@ -5,7 +5,6 @@
             die("Greska pri konekciji na bazu!\n" . $konekcija->errno . " : " . $konekcija->error);
         }
         return $konekcija;
-        
     }
     
     function zatvori_konekciju($konekcija){

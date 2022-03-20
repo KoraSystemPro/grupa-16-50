@@ -11,6 +11,13 @@
     <?php
         // Serviraj login formu
         if(isset($_GET['login']) && $_GET['login'] == true){
+            // Provera da li je korisnik vec ulogovan
+            session_start();
+            if(isset($_SESSION['id'])){
+                header("location:./main/index.php");
+                exit();
+            }
+
             echo('
             <form method="post" action="login.php" class="popupForm">
                 <div class="form-group">
