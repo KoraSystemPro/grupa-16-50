@@ -1,0 +1,105 @@
+body{
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+}
+
+.zaglavlje{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    background-color: #233D41;
+    width: 100%;
+    height: 60px;
+    color: #FBFAF9;
+}
+.zaglavlje-naslov{
+    padding-left: 20px;
+
+}
+.zaglavlje-user{
+    padding-right: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#zaglavlje-user-name{
+    margin-right: 20px;
+}
+.omotac{
+    padding-top: 80px;   
+    background-color: #AECCD7;
+    color: #233D41;
+    height: 100%;
+}
+
+.submit-dugme{
+    background-color: #E2B83A;
+    color: #233D41;
+    padding: 7px 13px;
+    border: 0;
+    border-radius: 7px;
+    transition: all 0.2s ease-in-out;
+}
+.submit-dugme:hover{
+    background-color: #375b60;
+    color: #E2B83A;
+    cursor: pointer;
+}
+
+.novi-post{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+#novi-post-text{
+    margin-bottom: 12px;
+    width: 70vw;
+    height: 40vh;
+}
+
+.horizontalna-podela{
+    width: 80vw;
+    height: 5px;
+    background-color: #233D41;
+    margin: auto;
+    border-radius: 10px;
+
+}
+
+.blog{
+    width: 100%;
+    margin-top: 20px;
+}
+
+.post{
+    background-color: #568B9C;
+    width: 100%;
+    padding: 10px 20px;
+    min-height: 200px;
+    max-height: 600px;
+    display: flex;
+    flex-direction: row;
+}
+
+.post-info{
+    width: 25%;
+}
+.post-sadrzaj{
+    background-color: #aeccd7;
+    min-height: 150px;
+    width: 70%;
+    overflow: scroll;
+
+}
+
+.post-info-ime{
+    color: black;
+    font-size: 14pt;
+    margin-bottom: 20px;
+}
