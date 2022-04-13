@@ -47,9 +47,18 @@ include './posts.php';
             request.onreadystatechange = function(){
                 if(this.readyState == 4 && this.status == 200){
                     // napravi novi post
-                    alert("Uspesno postovan");
+                    // alert("Uspesno postovan");
+                    request = new XMLHttpRequest();
+                    if(this.readyState == 4 && this.status == 200){
+                        document.getElementById("blog").innerText = request.responseText;
+                    }
+                    request.open("POST", "./dohvati.php", true);
+                    request.send();
+                    
+
                 }
             }
+            
 
             let data = new FormData();
             data.append("userID", "1");
