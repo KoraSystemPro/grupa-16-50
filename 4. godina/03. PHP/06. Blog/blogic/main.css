@@ -103,3 +103,43 @@ body{
     font-size: 14pt;
     margin-bottom: 20px;
 }
+
+.forme{
+    display: flex;
+    flex-direction: row;
+}
+
+.forma{
+    display: flex;
+    flex-direction: column;
+    min-width: 100px;
+    max-width: 200px;
+}
+
+.login-forma, .register-forma{
+    padding: 20px;
+    margin: 30px;
+}
+
+.login-forma h2, .register-forma h2{
+    color: #375b60;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-bottom: 20px;
+}
+
+.forma input{
+    padding: 5px;
+    border-radius: 3px;
+    border: 1px solid lightblue;
+    margin-bottom: 7px;
+    background-color: #ffe9a7;
+    color: #233D41;
+}
+
+.razdeljak{
+    display: block;
+    width: 2px;
+    height: 300px;
+    background-color: #000000;
+
+}
