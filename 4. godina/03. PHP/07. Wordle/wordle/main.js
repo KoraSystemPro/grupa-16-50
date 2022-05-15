@@ -19,7 +19,6 @@ function initBoard(){
         }
         board.appendChild(row);
     }
-    
 }
 
 initBoard();
@@ -48,11 +47,38 @@ function proveriPogodak(){
     request.send(podaci);
     request.onreadystatechange = function(){
         if (this.readyState == request.DONE && this.status == 200){
-            console.log(this.responseText);
+            console.log(this.response);
+            ofarbajPolja(this.response);
         }
     }
 
 
+}
+
+function ofarbajPolja(rezultat){
+    let row = document.getElementsByClassName("letter-row")[BROJ_POGODATA - preostaliPokusaji];
+    for(let i = 0; i < DUZINA_RECI; i++){
+        let box = row.children[i];
+        let bojaKutije = dohvatiBoju(rezultat[i]);
+        box.style.backgroundColor = bojaKutije;
+        
+    }
+}
+
+function dohvatiBoju(sifra){
+    // SIVA   - 0
+    // ZELENA - 1
+    // ZUTA   - 2
+    switch (sifra){
+        case 0:
+            return "gray";
+        case 1:
+            return "green";
+        case 2:
+            return "yellow";
+        default:
+            return "white";
+    }
 }
 
 function ubaciSlovo(unetoSlovo){
