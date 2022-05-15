@@ -1,6 +1,3 @@
-<?php
-    echo "1";
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -43,16 +40,26 @@
             let podaci = new FormData();
             podaci.append("email", document.getElementById("l-email").value);
             podaci.append("password", document.getElementById("l-pwd").value);
-            
-            if(request.readyState == 4 && request.status == 200){
-                if(request.responseText == 1){
-
-                } else {
-                    document.getElementById("response-div").innerText    = request.responseText;
+                
+            request.onreadystatechange = () => {
+                // Ako se DOBIO odgovor sa servera
+                if(request.readyState == XMLHttpRequest.DONE && request.status == 200){
+                    if(request.responseText == '1'){
+                        // Uspesan login
+                        window.location.href = "./index.php";
+                    } else {
+                        // Neuspesan login
+                        document.getElementById("response-div").innerText = request.responseText;
+                    }
+                } 
+                // Ako CEKAMO odgovor sa servera
+                else if (request.readyState == XMLHttpRequest.LOADING){
+                    // Ispisi krug koji se ucitava
                 }
             }
+            
 
-            request.open("POST", "./login.php");
+            request.open("POST", "./lib/check_login.php");
             request.send(podaci);
         }
     </script>

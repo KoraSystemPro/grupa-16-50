@@ -1,5 +1,6 @@
-<?php
-include './posts.php';
+<?php 
+include "./lib/posts.php";
+include "./lib/server.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,7 +26,7 @@ include './posts.php';
     </header>
     <div class="omotac">
         <div class="novi-post">
-            <form class="novi-post" action="./novi_post.php" method="POST">
+            <form class="novi-post">
                 <textarea id="novi-post-text" name="sadrzaj" rows="12" cols="50"></textarea>
                 <div>
                     <input class="submit-dugme" type="button" value="Postavi" onclick="novi_post()">
@@ -52,7 +53,7 @@ include './posts.php';
                     if(this.readyState == 4 && this.status == 200){
                         document.getElementById("blog").innerText = request.responseText;
                     }
-                    request.open("POST", "./dohvati.php", true);
+                    request.open("POST", "./lib/dohvati.php", true);
                     request.send();
                     
 
@@ -64,7 +65,7 @@ include './posts.php';
             data.append("userID", "1");
             data.append("tekst", tekst);
 
-            request.open("POST", "./posts.php", true);
+            request.open("POST", "./lib/posts.php", true);
             request.send(data);
             
             document.getElementById("novi-post-text").value = "";
