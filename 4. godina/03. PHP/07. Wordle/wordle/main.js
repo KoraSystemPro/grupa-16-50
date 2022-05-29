@@ -3,7 +3,23 @@ const DUZINA_RECI = 5;
 let preostaliPokusaji = BROJ_POGODATA;
 let sledeceSlovo = 0;
 let trenutniPokusaj = [];
+let cookie = {}
 
+function updateCookie() {
+    let odvojeni_parovi = document.cookie.split('; ');
+    for (let i = 0; i < odvojeni_parovi.length; i++) {
+        let kljuc = odvojeni_parovi[i].split('=')[0];
+        let vrednost = odvojeni_parovi[i].split('=')[1];
+        cookie[kljuc] = vrednost;
+    }
+    cookie['rec_dana'] = decodeURI(cookie['rec_dana']);
+    cookie['nije_odigran'] = Boolean(cookie['nije_odigran']);
+}
+
+function gameOver(){
+    resetujIgru();
+    
+}
 
 function initBoard(){
     let board = document.getElementById("game-board");
@@ -23,12 +39,14 @@ function initBoard(){
 
 initBoard();
 
-
 // 1. Da li pogodak ima 5 slova
 // 2. Proveri da li se rec nalazi u listi
 // 3. Za svako slovo proveriti da li postoji i obojiti ga
 // 4. Proveri da li je igra gotova
 function proveriPogodak(){
+    updateCookie();
+    console.log(cookie);
+
     let row = document.getElementsByClassName("letter-row")[BROJ_POGODATA - preostaliPokusaji];
     let pogodakStr = trenutniPokusaj.join("");
     
@@ -43,16 +61,52 @@ function proveriPogodak(){
     let request = new XMLHttpRequest();
     let podaci = new FormData();
     podaci.append("pogodak", pogodakStr);
+    let sifre = []
+    for(let i = 0; i < DUZINA_RECI; i++){
+        sifre.push(pogodakStr.charCodeAt(i));
+    }
+    podaci.append("encoded", sifre)
+
     request.open("POST", "./check.php", true);
     request.send(podaci);
     request.onreadystatechange = function(){
         if (this.readyState == request.DONE && this.status == 200){
-            console.log(this.response);
-            ofarbajPolja(this.response);
+            let rezultat = JSON.parse(this.response);
+            ofarbajPolja(rezultat['boje_kodovi']);
+            
+            if(gotovaIgra(rezultat['boje_kodovi'])){
+                // Pobeda
+                alert("Браво! Број покушаја: " + (BROJ_POGODATA-preostaliPokusaji-1));
+                resetujIgru();
+                return;
+            } else if(preostaliPokusaji == 1) {
+                // Izgubio
+                
+
+                alert("Више среће сутрадан!\nРешење је: " + resenje);
+
+
+                resetujIgru();
+                return;
+            } else {
+                // Sledeci
+                preostaliPokusaji -= 1;
+                trenutniPokusaj = [];    
+                sledeceSlovo = 0;
+            }
         }
     }
 
 
+}
+
+function gotovaIgra(niz){
+    for(let i = 0; i < niz.length; i++){
+        if(niz[i] != 1){
+            return false;
+        }
+    }
+    return true;
 }
 
 function ofarbajPolja(rezultat){
@@ -63,6 +117,7 @@ function ofarbajPolja(rezultat){
         box.style.backgroundColor = bojaKutije;
         
     }
+    
 }
 
 function dohvatiBoju(sifra){
@@ -99,6 +154,9 @@ function ubaciSlovo(unetoSlovo){
 }
 
 function brisiSlovo(){
+    if(sledeceSlovo == 0)
+        return;
+
     let row = document.getElementsByClassName("letter-row")[BROJ_POGODATA - preostaliPokusaji];
     let box = row.children[sledeceSlovo - 1];
     box.textContent = "";
@@ -107,6 +165,23 @@ function brisiSlovo(){
     
     trenutniPokusaj.pop();
     console.log(trenutniPokusaj);
+}
+
+function resetujIgru(){
+    preostaliPokusaji = BROJ_POGODATA;
+    sledeceSlovo = 0;
+    trenutniPokusaj = [];
+
+    for(let red = 0; red < BROJ_POGODATA; red++){
+        let divRed = document.getElementsByClassName("letter-row")[red];
+        let divKol = divRed.children;
+        
+        for(let kol = 0; kol < DUZINA_RECI; kol++){
+            divKol[kol].style.backgroundColor = "#FFFFFF";
+            divKol[kol].classList.remove("filled-box");
+            divKol[kol].innerHTML = "";
+        }
+    }
 }
 
 document.addEventListener("keyup", (e) => {
@@ -118,6 +193,11 @@ document.addEventListener("keyup", (e) => {
         return;
     }
     
+    if(pritisnutoDugme === "`"){
+        resetujIgru();
+        return;
+    }
+
     // Provera pogotka
     if(pritisnutoDugme === "Enter"){
         proveriPogodak();
@@ -133,3 +213,10 @@ document.addEventListener("keyup", (e) => {
         // console.log(pritisnutoDugme);
     }
 });
+
+// 
+// let onKeyboardClicked = (e) => {
+//     console.log(e);
+// }
+// let tastaturaDugmici = document.getElementsByClassName("keyboard-button");
+// tastaturaDugmici.addEventListener('click', onKeyboardClicked);
