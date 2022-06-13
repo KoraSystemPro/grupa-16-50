@@ -18,15 +18,18 @@
     $file_niz = explode("\n", $file);
     $odgovor = [];
 
+    
+    $rec_dana = $_COOKIE["rec_dana"];
+
     if(!isset($_COOKIE["rec_dana"]) && $file){
         $rand_index = random_int(0, count($file_niz));
         $jedan_dan = time() + 60*60*24;
+
+        $rec_dana = $file_niz[$rand_index];
         setcookie("rec_dana", $file_niz[$rand_index], $jedan_dan);
         setcookie("nije_odigran", "true", $jedan_dan);
     }
-
-    $rec_dana = $_COOKIE["rec_dana"];
-
+    
     $rec_dana_iseckano = iseckaj($rec_dana);
     $pogodak_iseckano = iseckaj($pogodak);
 
